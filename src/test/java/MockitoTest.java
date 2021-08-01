@@ -13,7 +13,7 @@ import ru.netology.sender.MessageSenderImpl;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MockitoTests {
+public class MockitoTest {
     @Test
     void messageSenderRu() {
         Map<String, String> headers = new HashMap<String, String>();
