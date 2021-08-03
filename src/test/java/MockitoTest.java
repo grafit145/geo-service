@@ -19,7 +19,7 @@ public class MockitoTest {
         Map<String, String> headers = new HashMap<String, String>();
         headers.put(MessageSenderImpl.IP_ADDRESS_HEADER, "172.123.12.19");
 
-        String expectedMessage = "Отправлено сообщение: Добро пожаловать";
+        String expectedMessage = "Добро пожаловать";
 
         GeoService geoServiceRu = Mockito.mock(GeoServiceImpl.class);
         Mockito.when(geoServiceRu.byIp("172.123.12.19"))
@@ -27,7 +27,7 @@ public class MockitoTest {
 
         LocalizationService localizationServiceRu = Mockito.mock(LocalizationServiceImpl.class);
         Mockito.when(localizationServiceRu.locale(Country.RUSSIA))
-                .thenReturn("Отправлено сообщение: Добро пожаловать");
+                .thenReturn("Добро пожаловать");
 
         MessageSender messageSender = new MessageSenderImpl(geoServiceRu, localizationServiceRu);
         String message = messageSender.send(headers);
@@ -41,7 +41,7 @@ public class MockitoTest {
         Map<String, String> headers = new HashMap<String, String>();
         headers.put(MessageSenderImpl.IP_ADDRESS_HEADER, "96.44.183.149");
 
-        String expectedMessage = "Отправлено сообщение: Welcome";
+        String expectedMessage = "Welcome ";
 
         GeoService geoService = Mockito.mock(GeoServiceImpl.class);
         Mockito.when(geoService.byIp("96.44.183.149"))
@@ -49,7 +49,7 @@ public class MockitoTest {
 
         LocalizationService localizationService = Mockito.mock(LocalizationServiceImpl.class);
         Mockito.when(localizationService.locale(Country.USA))
-                .thenReturn("Отправлено сообщение: Welcome");
+                .thenReturn("Welcome ");
 
         MessageSender messageSender = new MessageSenderImpl(geoService, localizationService);
         String message = messageSender.send(headers);
